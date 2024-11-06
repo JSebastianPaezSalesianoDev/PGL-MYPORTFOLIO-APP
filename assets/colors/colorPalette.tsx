@@ -1,0 +1,4 @@
+enum colors {
+  black = "",
+  white = "",
+}
