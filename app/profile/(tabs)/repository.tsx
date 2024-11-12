@@ -10,5 +10,3 @@ const repository = () => {
 };
 
 export default repository;
-
-const styles = StyleSheet.create({});

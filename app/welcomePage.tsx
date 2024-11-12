@@ -2,44 +2,49 @@ import { Link } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function Page() {
-  const image = "assets\\adf7ff14688846eb90770d4a284676fa.jpg";
+  const image = require("../assets/adf7ff14688846eb90770d4a284676fa.jpg");
+
   return (
-    /*  <ImageBackground source={require(image)} style={styles.backgroundImage}> */
-    <View style={styles.container}>
-      <View style={styles.spacer}></View>
-      <View style={styles.welcomeContainer}>
-        <View style={styles.welcomingRow}>
-          <Text style={styles.welcomeText}>Welcome to my page</Text>
-          <View>
-            <FontAwesome
-              name="window-minimize"
-              size={24}
-              color="white"
-              style={styles.windowMinimize}
-            />
+    <ImageBackground source={image} style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <View style={styles.spacer}></View>
+        <View style={styles.welcomeContainer}>
+          <View style={styles.welcomingRow}>
+            <Text style={styles.welcomeText}>Welcome to my page!</Text>
+            <View>
+              <FontAwesome
+                name="window-minimize"
+                size={24}
+                color="white"
+                style={styles.windowMinimize}
+              />
+            </View>
+            <View>
+              <FontAwesome
+                name="window-close-o"
+                size={24}
+                color="white"
+                style={styles.windowClose}
+              />
+            </View>
           </View>
-          <View>
-            <FontAwesome
-              name="window-close-o"
-              size={24}
-              color="white"
-              style={styles.windowClose}
-            />
+          <View style={styles.pressmeBox}>
+            <View style={styles.welcomeView}>
+              <Link href="./profile">
+                <AntDesign name="caretright" size={15} color="black" />
+                Press me!!<Text> </Text>
+                <AntDesign name="caretleft" size={15} color="black" />
+              </Link>
+            </View>
           </View>
         </View>
-        <View style={styles.pressmeBox}>
-          <View style={styles.welcomeView}>
-            <Link href="./profile">Press me!!</Link>
-          </View>
-        </View>
+        <View style={styles.spacer}></View>
+        <StatusBar style="auto" />
       </View>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <View style={styles.spacer}></View>
-      <StatusBar style="auto" />
-    </View>
-    /*  </ImageBackground> */
+    </ImageBackground>
   );
 }
 
@@ -47,6 +52,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: "cover",
+    justifyContent: "center",
   },
   container: {
     flex: 1,
@@ -78,6 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     padding: 2,
     marginTop: 20,
+    width: "45%",
   },
   windowMinimize: {
     marginRight: 9,
@@ -89,5 +96,8 @@ const styles = StyleSheet.create({
   },
   pressmeBox: {
     padding: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 50,
   },
 });
