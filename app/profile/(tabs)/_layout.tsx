@@ -1,21 +1,29 @@
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import Fontisto from "@expo/vector-icons/Fontisto";
-import { Header } from "react-native/Libraries/NewAppScreen";
-import HeaderComponent from "../../../components/HeaderComponent";
-import { info } from "../../../data/HeaderData";
+
+import Card from "../../../components/CardComponent";
+import { infocard } from "../../../data/CardData";
+
 export default () => {
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "blue",
-        headerTitle: "Header",
+        header: () => (
+          <Card
+            id={22}
+            title={infocard.name}
+            description={infocard.myInfo}
+            imgSource={require("../../../assets/desktop-wallpaper-customize-webcore-internetcore.jpg")}
+          />
+        ),
       }}
     >
       <Tabs.Screen
-        name="cards"
+        name="aboutme"
         options={{
-          title: "cards",
+          title: "aboutme",
           tabBarIcon: () => <Fontisto name="person" size={24} color="black" />,
         }}
       />
